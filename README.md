@@ -33,6 +33,7 @@ You can download and install **NeuroDesk v1.1.2** directly from the release link
 3. Once installed, launch NeuroDesk from the Start Menu or system tray.
 4. Optional: Configure *Launch on Startup* or *Always on Top* in the app settings for a personalized workflow.
 
+✅ Compatible with **Windows 10/11**.
 
 ## 🖱️ Usage
 
