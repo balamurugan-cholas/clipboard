@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroDesk Clipboard</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script defer src="index.js"></script>
+  <script defer src="settings.js"></script>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="app-name">NeuroDesk Clipboard</div>
+    <div class="window-controls">
+      <button id="minimize">−</button>
+      <button id="maximize">▢</button>
+      <button id="close">×</button>
+    </div>
+  </div>
+
+  <!-- History Menu + Search + Settings -->
+  <div class="history-controls">
+    <div class="menu-buttons">
+      <button id="showAll" class="active">All</button>
+      <button id="showFavorites">
+        Favorites <span id="favCount" class="badge">0</span>
+      </button>
+    </div>
+    <div class="search-settings">
+      <input type="text" id="searchBar" placeholder="Search...">
+      <button id="settingsBtn" title="Settings"><i class="fa-solid fa-gear"></i></button>
+    </div>
+  </div>
+
+  <!-- Clipboard History -->
+  <div class="history-container" id="historyContainer"></div>
+
+  <!-- Bottom Bar -->
+  <div class="bottom-bar">
+    <div class="status" id="status">Monitoring</div>
+    <div class="bottom-buttons">
+      <button id="pause" title="Pause/Resume"><i class="fa-solid fa-pause"></i></button>
+      <button id="clearAll" class="action-btn">Clear All</button>
+      <button id="export" class="action-btn">Export</button>
+    </div>
+  </div>
+
+  <!-- Popup Window -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <div id="popupText"></div>
+      <div class="popup-bottom-buttons">
+        <button id="popupCopy" class="action-btn">Copy</button>
+        <button id="popupPin" class="action-btn">Pin</button>
+        <button id="popupFav" class="action-btn">Favourite</button>
+        <button id="popupDelete" class="action-btn">Delete</button>
+        <button id="popupClose" class="action-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Overlay --> 
+<div id="settingsOverlay" class="settings-overlay">
+  <div class="settings-panel">
+
+    <h2>Settings</h2>
+
+    <!-- General Settings -->
+    <div class="settings-section">
+      <h3>General</h3>
+      <label><input type="checkbox" id="alwaysOnTop"> Always on Top</label>
+      <label><input type="checkbox" id="launchOnStart"> Launch on Start</label>
+    </div>
+
+    <!-- Shortcuts -->
+    <div class="settings-section">
+      <h3>Keyboard Shortcuts</h3>
+      <div class="shortcut-item">
+        <span>Minimize</span><span>Ctrl + M</span>
+      </div>
+      <div class="shortcut-item">
+        <span>Maximize</span><span>Ctrl + N</span>
+      </div>
+    </div>
+
+    <!-- About -->
+<div class="settings-section">
+  <h3>About</h3>
+  <p><strong>App:</strong> NeuroDesk Clipboard Manager</p>
+  <p><strong>Description:</strong> Professional clipboard manager for power users.</p>
+  <p><strong>Author:</strong> Bala</p>
+  <p><strong>Version:</strong> 1.1.2</p>
+
+  <!-- Social Links -->
+  <div class="social-links">
+    <a href="https://github.com/Balamurugan-cholas" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    <a href="https://instagram.com/post_maram?igsh=MWltZ3YyMDVxdnoyYQ==" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+  </div>
+</div>
+
+
+    <!-- Close Button -->
+    <button id="closeSettings" class="setting-btn">Close</button>
+
+  </div>
+</div>
+
+</body>
+<script src="top_actions.js"></script>
+</html>

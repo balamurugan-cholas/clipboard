@@ -1,0 +1,291 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { overflow: hidden; height: 100vh; background: #fff; color: #000; }
+
+/* Top Bar */
+.top-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 40px; background: #f5f5f5;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 10px; -webkit-app-region: drag;
+  border-bottom: 1px solid #ccc; z-index: 100;
+}
+.app-name { font-weight: 700; font-size: 16px; }
+.window-controls button {
+  -webkit-app-region: no-drag; width: 28px; height: 28px;
+  border: none; background: transparent; color: #000;
+  margin-left: 5px; cursor: pointer; font-size: 14px;
+}
+.window-controls button:hover { background: rgba(0,0,0,0.1); border-radius: 3px; }
+
+/* History Controls */
+.history-controls {
+  position: fixed; top: 45px; left: 10px; right: 10px;
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 99;
+}
+.menu-buttons { display: flex; gap: 10px; }
+.menu-buttons button {
+  border: none; background: transparent; font-weight: 600; font-size: 14px; cursor: pointer;
+}
+.menu-buttons button.active { color: #0078D7; }
+.badge {
+  background: #0078D7; color: #fff;
+  padding: 2px 6px; border-radius: 8px; font-size: 11px; margin-left: 4px;
+}
+.search-settings { display: flex; align-items: center; gap: 8px; }
+#searchBar {
+  width: 200px; padding: 6px 10px;
+  border: 2px solid #0078D7; border-radius: 0; outline: none; font-size: 14px;
+}
+#settingsBtn {
+  border: none; background: transparent; font-size: 18px; cursor: pointer; color: #000;
+}
+#settingsBtn:hover { color: #0078D7; }
+
+/* Clipboard History */
+.history-container {
+  position: fixed;
+  top: 80px; bottom: 40px; left: 0; right: 0;
+  overflow-y: auto; padding: 10px; background: #fff;
+  z-index: 1;
+}
+.clipboard-item {
+  background: #fff; padding: 8px 10px; margin-bottom: 8px;
+  border-radius: 4px; display: flex; justify-content: space-between; align-items: center;
+  border: 1px solid #ddd; cursor: pointer;
+  transition: background 0.2s, border-left 0.2s;
+  position: relative;
+}
+.clipboard-item.pinned { 
+  background: #fff8dc; 
+  border-left: 6px solid #FFD700; 
+}
+.clipboard-item.pinned::before {
+  content: "PINNED";
+  position: absolute; left: -50px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px; font-weight: 700; color: #FFD700;
+  letter-spacing: 0.5px;
+}
+.clipboard-item.favourite { 
+  background: #e0f7ff; 
+  border-left: 6px solid #0078D7; 
+}
+.clipboard-item.favourite::before {
+  content: "★";
+  position: absolute; left: -20px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px; color: #0078D7;
+}
+.item-text { flex: 1; }
+.item-meta, .timestamp { font-size: 10px; color: #555; }
+.no-items { text-align: center; padding: 20px; color: #777; font-style: italic; }
+
+/* Bottom Bar */
+.bottom-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; height: 40px; background: #f5f5f5;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 10px; border-top: 1px solid #ccc; z-index: 100;
+}
+.status { font-weight: 700; font-size: 14px; }
+.bottom-buttons { display: flex; gap: 10px; }
+#pause { border: none; background: transparent; font-size: 16px; cursor: pointer; }
+.action-btn {
+  border: 1px solid #000; background: #fff;
+  padding: 4px 10px; font-size: 14px; font-weight: 600;
+  border-radius: 4px; cursor: pointer;
+}
+.action-btn:hover { background: #0078D7; color: #fff; }
+
+/* Popup */
+.popup {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 200;
+}
+.popup.hidden { display: none; }
+.popup-content {
+  background: #fff; padding: 20px; border-radius: 6px;
+  width: 400px; max-height: 300px; display: flex; flex-direction: column;
+}
+#popupText { flex: 1; font-weight: 600; margin-bottom: 15px; overflow-y: auto; }
+.popup-bottom-buttons {
+  display: flex; gap: 10px; justify-content: flex-end;
+}
+
+/* Settings Overlay */
+.settings-overlay {
+  position: fixed; top: 0; right: -320px; width: 300px; height: 100%;
+  background: #fff; border-left: 1px solid #ccc;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  transition: right 0.3s ease-in-out; z-index: 300;
+}
+.settings-overlay.active { right: 0; }
+.settings-panel { padding: 20px; }
+.settings-panel h2 { font-weight: 700; margin-bottom: 15px; }
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed; bottom: 60px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; gap: 6px; z-index: 400;
+}
+.toast {
+  background: rgba(0,0,0,0.8); color: #fff;
+  padding: 8px 14px; border-radius: 4px; font-size: 13px;
+  min-width: 180px; max-width: 300px; text-align: center;
+  animation: fadein 0.3s, fadeout 0.3s 1.7s forwards;
+}
+@keyframes fadein { from {opacity: 0; transform: translateY(10px);} to {opacity: 1; transform: translateY(0);} }
+@keyframes fadeout { from {opacity: 1;} to {opacity: 0; transform: translateY(-10px);} }
+
+/* Clear All Modal */
+.clear-modal {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 500;
+}
+.clear-modal.hidden { display: none; }
+.clear-modal-content {
+  background: #fff; padding: 20px 25px; border-radius: 8px;
+  text-align: center; width: 300px;
+}
+.clear-modal-content p { margin-bottom: 15px; font-weight: 600; }
+.clear-modal-buttons { display: flex; justify-content: space-around; gap: 10px; }
+.clear-modal-buttons button {
+  padding: 6px 14px; border: none; border-radius: 4px;
+  font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.clear-modal-buttons button:hover { background: #0078D7; color: #fff; }
+
+/* ---------- Settings Overlay ---------- */
+.settings-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  max-width: 90%;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -3px 0 15px rgba(0,0,0,0.3);
+  transform: translateX(100%) translateY(-20px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 9999;
+  overflow-y: auto; /* scroll if content too tall */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Active (Slide-in + Fade-in) */
+.settings-overlay.active {
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+}
+
+/* Closing (Slide-up + Fade-out) */
+.settings-overlay.closing {
+  transform: translateX(100%) translateY(-20px);
+  opacity: 0;
+}
+
+/* ---------- Settings Panel ---------- */
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- Section ---------- */
+.settings-section {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.settings-section h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ---------- Checkbox Labels ---------- */
+.settings-section label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.settings-section input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #ff6600;
+}
+
+/* ---------- Shortcut Items ---------- */
+.shortcut-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.shortcut-item:hover {
+  background-color: #fffbf5;
+}
+
+/* ---------- Social Links ---------- */
+.social-links {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
+  color: #ff6600;
+}
+
+/* ---------- Close Button ---------- */
+.setting-btn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.setting-btn:hover {
+  background-color: #e55b00;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 500px) {
+  .settings-overlay {
+    width: 90%;
+  }
+}
+
+
+

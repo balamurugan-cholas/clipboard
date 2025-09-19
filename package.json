@@ -1,0 +1,54 @@
+{
+  "name": "neuro-desk",
+  "version": "1.1.2",
+  "description": "Professional clipboard manager for power users.",
+  "author": "Bala",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^26.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.bala.neurodesk",
+    "productName": "NeuroDesk",
+    "files": [
+      "main.js",
+      "renderer/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "backend/",
+        "to": "backend",
+        "filter": ["**/*"]
+      }
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        }
+      ],
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "NeuroDesk",
+      "runAfterFinish": true,
+      "allowElevation": true
+    }
+  }
+}
