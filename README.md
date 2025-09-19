@@ -65,7 +65,7 @@ After installing NeuroDesk v1.1.2, users can start using the app immediately:
 ## 📄 License
 
 NeuroDesk v1.1.2 is released under the **MIT License**.
-You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, as long as the original copyright notice and this permission notice are included.
+You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, as long as the original copyright notice.
 
 
 ## 🙏 Acknowledgements
