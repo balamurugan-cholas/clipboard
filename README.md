@@ -1,50 +1,30 @@
-# 🧠 NeuroDesk v1.0.0
+# 🧠 NeuroDesk
 
-**NeuroDesk** is a lightweight **Windows desktop application** built with **Python & PyQt6**, designed to **enhance productivity** and streamline clipboard management.
+NeuroDesk is a lightweight productivity desktop application designed to simplify everyday workflows.  
+It provides quick access, smart clipboard handling, and a modern UI for efficient multitasking.  
 
-It is a **ready-to-run `.exe`** — no Python installation needed.
+## 📥 Download & Setup
 
-## ✨ Key Features & Specialties
+👉 [Download NeuroDesk v1.1.2 (Windows Setup)](https://github.com/balamurugan-cholas/clipboard/releases/download/v1.1.2/NeuroDesk.Setup.1.1.2.exe)
 
-* 📋 **Clipboard Manager with Timestamps**
-  * All copied text is saved automatically with the time it was copied.
-  * Users can easily view, select, and copy past items.
+1. Download the `.exe` file from the link above.  
+2. Run the installer and follow the on-screen steps.  
+3. Once installed, launch **NeuroDesk** from the Start Menu or Desktop shortcut.  
 
-* ⚡ **Always on Top**
-  * The app window remains on top for quick access while working.
+## ✨ Features
+- 🗂️ **Smart Clipboard Management** – Save, access, and reuse copied content easily.  
+- ⚡ **Always-on-Top Mode** – Keep NeuroDesk visible while multitasking.  
+- 🚀 **Lightweight & Fast** – Optimized for performance with minimal resource usage.  
+- 🎨 **Modern UI** – Clean, intuitive, and distraction-free interface.  
+- 🔒 **Privacy-Friendly** – No data sent outside your device.    
 
-* 🖥️ **Runs in Background**
-  * NeuroDesk operates silently in the background without interrupting your workflow.
+## 🛠️ Tech Stack
+- **Language:** Python  
+- **Framework:** Flask + PyInstaller  
+- **Platform:** Windows Desktop  
 
-* 🚀 **Launch on Startup**
-  * Automatically starts with Windows so your clipboard history is always tracked.
+## 🤝 Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss.  
 
-* 🎨 **Modern PyQt6 Interface**
-  * Clean, intuitive design for effortless navigation.
-
-* 💾 **Persistent Settings**
-  * User preferences are saved between sessions for a seamless experience.
-
-* 📦 **Portable Executable**
-  * No setup required — simply run `NeuroDesk.exe`.
-
-## 📥 Download
-
-**Version 1.0.0:**  
-➡️ [**Download NeuroDesk.exe**](https://github.com/balamurugan-cholas/clipboard/raw/main/dist/NeuroDesk.exe)  
-
-*(Direct Windows executable — ready to run)*
-
-## 🧑‍💻 Author
-
-**Bala Murugan**  
-[GitHub Profile](https://github.com/balamurugan-cholas)
-
-## ⚖️ License
-
-Licensed under the **MIT License** – free for personal and commercial use.
-
-## 🔮 Future Updates
-
-i'm actively working to make **NeuroDesk the best clipboard manager** for Windows.  
-Follow this repository to get the latest updates, improvements, and new features in upcoming versions.
+## 📜 License
+This project is licensed under the MIT License.  
